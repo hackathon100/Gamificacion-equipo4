@@ -1,45 +1,51 @@
 <template>
   <div>
- <div class="gameOver" v-if="!gameStarted">
+    <div class="gameOver" v-if="!gameStarted">
       <h1>Welcome to Trivia!</h1>
       <h4 v-if="numQuestions">Previous Score: {{ getScore() }}%</h4>
       <h3>Pick a Category</h3>
       <label>
         Comics
-        <input type="radio" v-model="category" name="category" value="29">
+        <input type="radio" v-model="category" name="category" value="29" />
       </label>
       <label>
         Video Games
-        <input type="radio" v-model="category" name="category" value="15">
+        <input type="radio" v-model="category" name="category" value="15" />
       </label>
       <label>
         Computers
-        <input type="radio" v-model="category" name="category" value="18">
+        <input type="radio" v-model="category" name="category" value="18" />
       </label>
-      <br>
-      <br>
+      <br />
+      <br />
       <button @click="getQuestions">Click to Begin!</button>
     </div>
     <div class="questionAndAnswers" v-if="gameStarted">
-      <h2 class="question" v-html="question">
-        
-      </h2>
-      <ul class="answers mt-5" v-if="asking && gameStarted">
-        <li v-for="answer of choices" :key="answer.id" class="answer"
-            @click="checkAnswer" v-html="answer">          
+      <h6 class="question text-center px-5" v-html="question"></h6>
+      <ul
+        class="answers mt-5 row justify-content-center"
+        v-if="asking && gameStarted"
+      >
+        <li
+          class="text-center justify-content-center mx-1 my-1 px-1"
+          v-for="answer of choices"
+          :key="answer.id"
+          @click="checkAnswer"
+        >
+          <button class="button-answer" v-html="answer"></button>
         </li>
       </ul>
       <div class="result" v-if="!asking && gameStarted">
-        <div class="row center-y center-x">
-          <h3>Your Choice: </h3>
+        <div class="row text-center justify-content-center">
+          <h3>Your Choice:</h3>
           <p v-html="chosen"></p>
         </div>
-        <div class="row center-y center-x">
-          <h3>Correct Answer: </h3>
+        <div class="row text-center justify-content-center">
+          <h5>Correct Answer:</h5>
           <p v-html="answer"></p>
         </div>
-        <h3>{{ numCorrect }} / {{ numQuestions }}</h3>
-        <h2>{{ chosen == answer ? "Well Done!" : "Incorrect!"}}</h2>
+        <h5>{{ numCorrect }} / {{ numQuestions }}</h5>
+        <h5>{{ chosen == answer ? "Well Done!" : "Incorrect!" }}</h5>
         <button @click="nextQuestion">Next Question</button>
       </div>
     </div>
@@ -48,43 +54,43 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-    category: 29,
-    asking: false,
-    gameStarted: false,
-    questions: [],
-    currentQuestionNum: 0,
-    question: '',
-    answer: '',
-    choices: [],
-    chosen: '',
-    numCorrect: 0,
-    numQuestions: null
-    }
+      category: 29,
+      asking: false,
+      gameStarted: false,
+      questions: [],
+      currentQuestionNum: 0,
+      question: "",
+      answer: "",
+      choices: [],
+      chosen: "",
+      numCorrect: 0,
+      numQuestions: null
+    };
   },
 
   methods: {
     getQuestions() {
       fetch(`https://opentdb.com/api.php?amount=10&category=${this.category}`)
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        this.gameStarted = true;
-        this.currentQuestionNum = 0;
-        this.questions = res.results;
-        this.numCorrect = 0;
-        this.numQuestions = res.results.length;
-        this.nextQuestion();
-      })
-      .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          this.gameStarted = true;
+          this.currentQuestionNum = 0;
+          this.questions = res.results;
+          this.numCorrect = 0;
+          this.numQuestions = res.results.length;
+          this.nextQuestion();
+        })
+        .catch(err => console.log(err));
     },
     nextQuestion() {
       this.asking = true;
       if (this.currentQuestionNum === this.questions.length) {
-         this.gameStarted = false;
-         this.asking = false;
-         return;
+        this.gameStarted = false;
+        this.asking = false;
+        return;
       }
       const qNum = this.currentQuestionNum;
       //let question = this.questions[qNum]
@@ -92,7 +98,7 @@ export default {
       this.answer = this.questions[qNum].correct_answer.trim();
       const choices = this.questions[qNum].incorrect_answers;
       choices.push(this.answer);
-      this.choices = choices.sort(() => Math.random() - 0.5)
+      this.choices = choices.sort(() => Math.random() - 0.5);
       this.currentQuestionNum = this.currentQuestionNum + 1;
     },
     checkAnswer(e) {
@@ -105,54 +111,28 @@ export default {
       }
     },
     getScore() {
-      return Math.trunc(this.numCorrect / this.numQuestions * 100, 2);
+      return Math.trunc((this.numCorrect / this.numQuestions) * 100, 2);
     }
   }
-}
+};
 </script>
 
 <style scope>
-* {
-  text-align: center;
-}
-
-.row, .column {
-  display: flex;
-}
-
-.center-x {
-  justify-content: center;
-}
-
-.center-y {
-  align-items: center;
-}
-
-.row>p {
-  margin: 10px;
-}
-
-.answers {
-  display: grid;
-  width: 560px;
-  height: 300px;
-  margin: auto;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
-}
-
-.answer {
+.button-answer {
+  height: 50px;
   list-style: none;
-  border: 3px darkblue solid;
-  text-align: center;
-  padding: 50px 10px;
-  cursor: pointer;
-  background-color: cornflowerblue;
-  transition: background-color 0.2s
+  border: 1px darkblue solid;
+  background-color: rgb(152, 177, 223);
+  padding: 15px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.answers {
+  list-style: none;
 }
 
-.answer:hover {
-  background-color: rebeccapurple;
+.button-answer:hover {
+  background-color: rgb(176, 146, 206);
   color: white;
 }
 </style>
