@@ -1,6 +1,6 @@
 main {
-    width: 320pt;
-    height: 340px;
+    width: auto;
+    height: auto;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     background: url(img/header@2x.png) no-repeat;
@@ -25,19 +25,45 @@ main {
 }
 
 .titan {
-    width: 160px;
+    width: 260px;
 }
 
 .bottom-screen {
+    justify-content: center;
     text-align: center;
     height: 40vh;
 }
 
-.boton-comienzo-batalla{
+.boton-comienzo-batalla {
     height: 4rem;
     width: 16rem;
-    background-color: #622AFF;
-    color: aliceblue;
+    background-color: #622AFF;    
     border-radius: 20px;
     border-color: #622AFF;
+}
+
+.enlace-unirse{
+    color: aliceblue;
+    text-decoration: none;
+}
+.enlace-unirse:hover{
+    color: rgb(240, 245, 255);
+    text-decoration: none;
+}
+
+.text-morado{
+    color: #622AFF;
+}
+.color-gris{
+    color: #717171;
+}
+
+.strellas{
+    text-decoration: none;
+    color: #FF9900;
+}
+
+.estrella-gris{
+    text-decoration: none;
+    color:#C1C1C1;
 }
