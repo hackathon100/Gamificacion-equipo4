@@ -2,9 +2,7 @@
 const socket = io();
 
 
-socket.on('enviar:pregunta', (pregunta)=>{
-    window.levantarPregunta(pregunta);
-})
+
 
 window.levantarPregunta = (pregunta)=>{
 
@@ -45,6 +43,13 @@ window.levantarPregunta = (pregunta)=>{
 
 
 //Funciones Socket
+
+//Muestra Pregunta enviada 
+socket.on('enviar:pregunta', (pregunta)=>{
+    window.levantarPregunta(pregunta);
+})
+
+//Recibe informacion si alguien se conecta a la partida
 socket.on('join:User',(id)=>{
     let contenedorJugadores = document.querySelector("#jugadores")
     contenedorJugadores.innerHTML +=`
@@ -52,7 +57,20 @@ socket.on('join:User',(id)=>{
     `;
 });
 
+//Envia respuesta de la pregunta
 enviarRespuesta = function(id){
     let respuesta = id.innerText;
     socket.emit('enviar:respuesta', respuesta);
 }
+
+//Recibe Resultado de la Pregunta
+socket.on('respuesta:resultado',(result)=>{
+    if(result){
+        //Inflinje Daño
+
+    }else{
+        //Recive Daño
+        
+    }
+})
+

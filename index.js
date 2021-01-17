@@ -28,17 +28,28 @@ preguntas = [
 
 //Web Socket
 io.on('connection',(socket)=>{
+
     //al Recibir nueva conexion:
     console.log("new conecction", socket.id);
     io.sockets.emit('join:User',socket.id);
 
-    if(io.engine.clientsCount > 2){
+    //Si hay a lo menos 2 jugadores, enviara la pregunta
+    if(io.engine.clientsCount >= 2){
         io.sockets.emit('enviar:pregunta', preguntas[0])
     };
 
     //Recibe y Revisa la pregunta, enviara true o false
     socket.on('enviar:respuesta', (data)=>{
-        
+        if(preguntas[0].correct_answer == data){
+            console.log("Respondio Correctamente");
+            result = true;
+            
+        }else{
+            console.log("Respondio Incorrectamente");
+            result = false;
+
+        }
+        io.sockets.emit('respuesta:resultado', result);
     })
 
 
