@@ -1,5 +1,5 @@
 main {
-    width: 100%;
+    width: 320pt;
     height: 340px;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -31,10 +31,6 @@ main {
 .bottom-screen {
     text-align: center;
     height: 40vh;
-}
-
-.div-comienzo-batalla{
-  
 }
 
 .boton-comienzo-batalla{
