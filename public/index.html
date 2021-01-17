@@ -14,13 +14,35 @@
     <title>Game</title>
   </head>
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">MingApp</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item ">
+                <a class="nav-link active" aria-current="page" href="#">BATALLA!</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="perfil-jugador.html">Perfil Jugador</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     <div class="container-fluid d-flex flex-column">
         <div class="col-sm-12 upper-head p-5">
             <div class="row d-flex flex-row justify-content-between general">
                 <div class="title d-flex flex-row "> 
-                    <div class="chevron me-5"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                      </svg></div>
+                    <div class="chevron me-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </div>
                     <h1 class="title-page ms-3">Titan Battle</h1>
                 </div>
                 <div class="life-titan d-flex flex-row justify-content-end"> 
@@ -40,7 +62,6 @@
 
         <div class="row bottom-screen d-flex flex-column justify-content-center">
             <div class="d-flex flex-row justify-content-between">
-
                 <div id="contador-preguntas" class="title d-flex flex-row "> 
                     <!--
                         <h1 class="question ms-3">Pregunta 1 de 10</h1>
@@ -62,44 +83,43 @@
             <div class="contenido d-flex flex-column mx-auto">
                 <div id="jugadores" class="users d-flex flex-row justify-content-between mt-5">
                     <!--
+
                     <div class="avatar text-center">
-                        <div class="avatar-img img-fluid"> <img src="img/Asset 32.png" alt="" class="img-av"> </div>
+                        <div class="avatar-img img-fluid"> <img src="/public/img/Asset 32.png" alt="" class="img-av"> </div>
                         <span class="avatar-name">Dan</span>
                     </div>
                     <div class="avatar text-center">
-                        <div class="avatar-img img-fluid"> <img src="img/Asset 62.png" alt="" class="img-av"> </div>
+                        <div class="avatar-img img-fluid"> <img src="/public/img/Asset 62.png" alt="" class="img-av"> </div>
                         <span class="avatar-name">Pierre</span>
                     </div>
                     <div class="avatar text-center">
-
                         <div class="avatar-img img-fluid"> <img src="img/Asset 72.png" alt="" class="img-av"> </div>
-
                         <span class="avatar-name">Marcela</span>
                     </div>
                     <div class="avatar text-center">
-                        <div class="avatar-img img-fluid"> <img src="img/Asset 82.png" alt="" class="img-av"> </div>
+                        <div class="avatar-img img-fluid"> <img src="/public/img/Asset 82.png" alt="" class="img-av"> </div>
                         <span class="avatar-name">Valentina</span>
                     </div>
                     <div class="avatar text-center">
-                        <div class="avatar-img img-fluid"> <img src="img/Asset 92.png" alt="" class="img-av"> </div>
+                        <div class="avatar-img img-fluid"> <img src="/public/img/Asset 92.png" alt="" class="img-av"> </div>
                         <span class="avatar-name">Alexis</span>
                     </div>
                     <div class="avatar text-center">
-                        <div class="avatar-img img-fluid"> <img src="img/Asset 102.png" alt="" class="img-av"> </div>
+                        <div class="avatar-img img-fluid"> <img src="/public/img/Asset 102.png" alt="" class="img-av"> </div>
                         <span class="avatar-name">Jonnathan</span>
                     </div>
                     -->
-                    
                 </div>
+                
 
                 <div id="pregunta" class="question-btn">
                     <!--
                     <div class="d-grid gap-2 my-5">
-                        <button id="pregunta" class="btn btn-primary btn-question" type="button">¿Cuanto es 1+1?</button>
-                    </div>
+                        <button class="btn btn-primary btn-question" type="button">¿Cuanto es 1+1?</button>
+                      </div>
                     -->
-                    
                 </div>
+
                 <div id="respuestas" class="answers d-flex flex-row justify-content-between">
                     <!--
                     <div class="answers-btn">
@@ -115,7 +135,6 @@
                         <button type="button" class="btn btn-primary btn-lg btn-answer">44</button>
                     </div>
                     -->
-                    
                 </div>
             </div>
 
