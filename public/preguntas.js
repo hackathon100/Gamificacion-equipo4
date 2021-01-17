@@ -85,6 +85,18 @@ socket.on('respuesta:resultado',(data)=>{
         let nVidaEjer = document.querySelector("#numero-vida-ejer")
         barraEjer.style = `width: ${data.vidaEjercito}%`;
         nVidaEjer.innerText = data.vidaEjercito;
-    }
-})
+    };
+});
+
+//Resultados de la Partida:
+socket.on('partida:terminada', (resultado)=>{
+    if (resultado == "Win"){
+        console.log("Ganaste");
+        
+    }else if (resultado == "Lose"){
+        console.log("Perdiste");
+    }else if (resultado == "Empate"){
+        console.log("Empate");
+    };
+});
 
