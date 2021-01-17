@@ -75,18 +75,29 @@ io.on('connection',(socket)=>{
             respondieron = 0;
 
             //Enviar nueva pregunta si la cantidad de preguntas aun no se supera
-            console.log(preguntas.length);
             if(nPregunta < preguntas.length){
+                console.log("Enviar Pregunta");
                 nPregunta ++;
                 io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
             }
             //termino el temario, se Levantan Estadisticas
             if(nPregunta == 3){
                 console.log("Todas las preguntas Contestadas");
+                if(vidaEjercito > vidaTitan){
+                    io.sockets.emit('partida:terminada',"Win");
+                }else if (vidaEjercito < vidaTitan){
+                    io.sockets.emit('partida:terminada',"Lose");
+                }else{
+                    io.sockets.emit('partida:terminada',"Empate");
+                };
+
                 vidaTitan = 100;
                 vidaEjercito = 100;
                 nPregunta = 0;
-                io.sockets.emit('partida:terminada',true);
+
+                //Nueva Partida
+                io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
+ 
                 
             };
             
