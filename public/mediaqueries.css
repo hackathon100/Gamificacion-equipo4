@@ -1,0 +1,80 @@
+:root {
+
+  --purpleDark:#5B42C5;
+  --purpleLight:#622AFF;
+  --greenDark:#00816D;
+  --greenLight:#37CE6E;
+  --blackText:#4A4A4A;
+  --grayText:#717171;
+  --gradientBlue:transparent linear-gradient(0deg, #0080FF 0%, #5DAEFF 100%) 0% 0% no-repeat padding-box;
+  --box-shadow:0px 5px 5px #00000036;
+}
+
+
+@media (max-width: 768px) {
+  .chevron svg{
+    width:25px;
+    
+  }
+  .title-page{
+    padding-top:5px;
+    font-size:22px;
+}
+  .life-titan{
+  width: 300px;
+}
+.progress{
+  width: 180px;
+  height: 25px;
+}
+.number-point{
+  font-size:28px;
+}
+.text-life-titan{
+  font-size:16px;
+  font-weight: 700;
+}
+.titan{
+  width: 232px;
+}
+
+.upper-head{
+  height: 300px;
+}
+
+.bottom-screen{
+  padding: 1.5em 1em;
+ }
+
+.question{
+  font-size: 20px;
+}
+.users{
+    margin-top:1em;
+}
+
+.img-av{
+  width:80px;
+}
+
+.contenido{
+  width: 600px;
+}
+.queue{
+  margin-top:2em;
+  margin-bottom:1em;
+}
+
+.btn-question{
+  height: 60px;
+  font-size:28px;
+}
+
+.btn-answer{
+  margin-top:1em;
+  height: 70px;
+  width: 120px;
+  font-size:22px;
+}
+
+}
