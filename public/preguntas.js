@@ -49,7 +49,6 @@ socket.on('enviar:pregunta', (pregunta)=>{
 
 //Muestra el Numerode la Pregunta
 socket.on('enviar:numero',(nPregunta)=>{
-    console.log("holi pololi");
     document.querySelector("#contador-preguntas").innerHTML = "";
     document.querySelector("#contador-preguntas").innerHTML = `<h1 class="question ms-3">Pregunta ${nPregunta+1} de 10</h1>`
 })
@@ -72,13 +71,20 @@ enviarRespuesta = function(id){
 }
 
 //Recibe Resultado de la Pregunta
-socket.on('respuesta:resultado',(result)=>{
-    if(result){
+socket.on('respuesta:resultado',(data)=>{
+    if(data.result){
         //Inflinje Daño
+        let barraTitan = document.querySelector("#vida-titan");
+        let nVidaTitna = document.querySelector("#numero-vida-titan");
+        barraTitan.style = `width: ${data.vidaTitan}%`;
+        nVidaTitna.innerText = data.vidaTitan;
 
-    }else{
+    }else if (!data.result){
         //Recive Daño
-        
+        let barraEjer = document.querySelector("#vida-ejer");
+        let nVidaEjer = document.querySelector("#numero-vida-ejer")
+        barraEjer.style = `width: ${data.vidaEjercito}%`;
+        nVidaEjer.innerText = data.vidaEjercito;
     }
 })
 
