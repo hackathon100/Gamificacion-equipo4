@@ -1,0 +1,53 @@
+.div-tu-nomnbre {
+    padding-top: 10%;
+}
+
+.input-name {
+    font-family: 'Poppins', sans-serif;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 3px solid var(--unnamed-color-00b89b);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 3px solid #00B89B;
+    border-radius: 10px;
+    opacity: 1;
+    height: 3rem;
+    width: 15rem;
+}
+
+.h3-nombre {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-00b89b);
+    font: normal normal bold 29px/43px Poppins;
+    letter-spacing: 0px;
+    color: #00B89B;
+    opacity: 1;
+}
+
+.div-boton-continuar{
+    text-align: center;
+    padding-top: 20%;
+}
+.btn-continuar {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    font: normal normal 600 33px/50px Poppins;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    background-color: #B398FF;
+    border-radius: 15px;
+    border: #B398FF;
+    
+}
+
+@media only screen and (max-width:900px) {
+    .div-tu-nomnbre {
+        padding-top: 60%;
+    }
+    
+    .div-boton-continuar{
+        text-align: center;
+        padding-top: 60%;
+    }
+}
