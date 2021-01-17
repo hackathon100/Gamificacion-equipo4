@@ -27,6 +27,8 @@ preguntas = [
 ];
 var respondieron = 0;
 var nPregunta = 0;
+let vidaTitan = 100;
+let vidaEjercito = 100;
 //Web Socket
 io.on('connection',(socket)=>{
 
@@ -42,18 +44,19 @@ io.on('connection',(socket)=>{
     //Recibe y Revisa la pregunta, enviara true o false,
     //Ademas verifica si todos respondieron para enviar nueva pregunta.
     socket.on('enviar:respuesta', (data)=>{
-        if(preguntas[0].correct_answer == data){
+        if(preguntas[nPregunta].correct_answer == data){
             console.log("Respondio Correctamente");
             result = true;
-            
+            vidaTitan -= 10;
+            io.sockets.emit('respuesta:resultado', {result,vidaTitan});
         }else{
             console.log("Respondio Incorrectamente");
             result = false;
+            vidaEjercito -= 10;
+            io.sockets.emit('respuesta:resultado', {result,vidaEjercito});
 
         }
         respondieron ++;
-        io.sockets.emit('respuesta:resultado', result);
-
         //si la cantidd de respeustas es igual a la cantidad de conexiones:
         if(respondieron == io.engine.clientsCount){
             console.log("todos respondieron!")
