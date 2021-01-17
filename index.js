@@ -36,7 +36,7 @@ io.on('connection',(socket)=>{
 
     //Si hay a lo menos 2 jugadores, enviara la pregunta
     if(io.engine.clientsCount >= 2){
-        io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
+        io.sockets.emit('enviar:pregunta', preguntas[nPregunta]);
     };
 
     //Recibe y Revisa la pregunta, enviara true o false,
@@ -57,6 +57,7 @@ io.on('connection',(socket)=>{
         //si la cantidd de respeustas es igual a la cantidad de conexiones:
         if(respondieron == io.engine.clientsCount){
             console.log("todos respondieron!")
+            io.sockets.emit('enviar:numero', nPregunta);
             respondieron = 0;
 
             //Enviar nueva pregunta si la cantidad de preguntas aun no se supera
@@ -65,11 +66,12 @@ io.on('connection',(socket)=>{
                 nPregunta ++;
                 io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
             }
-            //termino el temario, se repiten las preguntas
+            //termino el temario, se Levantan Estadisticas
             if(nPregunta == 3){
                 console.log("Todas las preguntas Contestadas");
+                //io.sockets.emit('enviar:resultados', preguntas[nPregunta])
                 nPregunta = 0;
-                io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
+                
             };
             
         }
