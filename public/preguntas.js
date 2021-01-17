@@ -1,19 +1,8 @@
 //iniciar coneccion socket
 const socket = io();
 
-//Aca esta el Temario a Realizar
-window.preguntas = [
-    {pregunta: "Cual es el sinonimode Ganar",correct_answer: "Exito", incorrect1: "Derrota",incorrect2: "Fracaso", incorrect3: "Perdida"},
-    {pregunta: "Cual es el sinonimode Perder",incorrect1: "Aprender", correct_answer: "Derrota", incorrect2: "Exito", incorrect3: "Mejorar"},
-    {pregunta: "Cual noes un lenguaje de programacion", correct_answer: "HTML", incorrect1: "PYTHON", incorrect2: "JAVA", incorrect3:"PHP"}
-    
-];
 
 
-window.addEventListener('DOMContentLoaded',()=>{
-    window.levantarPregunta(window.preguntas[0]);
-    
-});
 
 window.levantarPregunta = (pregunta)=>{
 
@@ -35,16 +24,16 @@ window.levantarPregunta = (pregunta)=>{
     //Cargar Respuesta
     ContenedorRespuestas.innerHTML = `
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.correct_answer}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.correct_answer}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect1}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect1}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect2}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect2}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect3}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect3}</button>
         </div>
         
         
@@ -54,9 +43,34 @@ window.levantarPregunta = (pregunta)=>{
 
 
 //Funciones Socket
+
+//Muestra Pregunta enviada 
+socket.on('enviar:pregunta', (pregunta)=>{
+    window.levantarPregunta(pregunta);
+})
+
+//Recibe informacion si alguien se conecta a la partida
 socket.on('join:User',(id)=>{
     let contenedorJugadores = document.querySelector("#jugadores")
     contenedorJugadores.innerHTML +=`
     <H1>${id}</H1>
     `;
 });
+
+//Envia respuesta de la pregunta
+enviarRespuesta = function(id){
+    let respuesta = id.innerText;
+    socket.emit('enviar:respuesta', respuesta);
+}
+
+//Recibe Resultado de la Pregunta
+socket.on('respuesta:resultado',(result)=>{
+    if(result){
+        //Inflinje Daño
+
+    }else{
+        //Recive Daño
+        
+    }
+})
+
