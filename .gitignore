@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> b1d6e858cb9d2fb34256337161d380f91ed96c1c
 # Created by https://www.toptal.com/developers/gitignore/api/vuejs
 # Edit at https://www.toptal.com/developers/gitignore?templates=vuejs
 
 node_modules/
 dist/
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/vuejs
+=======
+# End of https://www.toptal.com/developers/gitignore/api/vuejs
+>>>>>>> b1d6e858cb9d2fb34256337161d380f91ed96c1c

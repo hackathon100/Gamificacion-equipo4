@@ -16,7 +16,7 @@ body {
     margin:0;
     padding:0;
     box-sizing: border-box;
-    background: url(/public/img/header@2x.png) no-repeat 0 50%;
+    background: url(img/header@2x.png) no-repeat 0 50%;
     background-size:cover;
     background-color:var(--purpleLight);
 }

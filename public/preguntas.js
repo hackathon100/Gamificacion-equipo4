@@ -9,37 +9,34 @@ window.levantarPregunta = (pregunta)=>{
     //Buscar Contenedores Para Asignar pregunta
     const contenedorPregunta = document.querySelector("#pregunta");
     const ContenedorRespuestas = document.querySelector("#respuestas");
-
+ 
     //Limiar pregunta previa
     contenedorPregunta.innerHTML ="";
     ContenedorRespuestas.innerHTML = "";
 
     //Cargar Pregunta
     contenedorPregunta.innerHTML = `
-    <div class="col-6 text-center mx-auto pt-4">
-        <h1 class="bg-info text-white rounded-pill ">${pregunta.pregunta}</h1>
+    <div class="d-grid gap-2 my-5">
+        <button id="pregunta" class="btn btn-primary btn-question" type="button">${pregunta.pregunta}</button>
     </div>
     `;
 
     //Cargar Respuesta
     ContenedorRespuestas.innerHTML = `
-        <div class="col-3 text-center">
-            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.correct_answer}</button>
-        </div>
-        <div class="col-3 text-center">
-            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect1}</button>
-        </div>
-        <div class="col-3 text-center">
-            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect2}</button>
-        </div>
-        <div class="col-3 text-center">
-            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect3}</button>
-        </div>
-        
-        
+    <div class="answers-btn">
+        <button type="button" class="btn btn-primary btn-lg btn-answer" onclick="enviarRespuesta(this)">${pregunta.correct_answer}</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-answer" onclick="enviarRespuesta(this)">${pregunta.incorrect1}</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-answer" onclick="enviarRespuesta(this)">${pregunta.incorrect2}</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-answer" onclick="enviarRespuesta(this)">${pregunta.incorrect3}</button>
+    </div>
     `;
 };
-
 
 
 //Funciones Socket
@@ -47,13 +44,24 @@ window.levantarPregunta = (pregunta)=>{
 //Muestra Pregunta enviada 
 socket.on('enviar:pregunta', (pregunta)=>{
     window.levantarPregunta(pregunta);
+
+})
+
+//Muestra el Numerode la Pregunta
+socket.on('enviar:numero',(nPregunta)=>{
+    console.log("holi pololi");
+    document.querySelector("#contador-preguntas").innerHTML = "";
+    document.querySelector("#contador-preguntas").innerHTML = `<h1 class="question ms-3">Pregunta ${nPregunta+1} de 10</h1>`
 })
 
 //Recibe informacion si alguien se conecta a la partida
 socket.on('join:User',(id)=>{
     let contenedorJugadores = document.querySelector("#jugadores")
     contenedorJugadores.innerHTML +=`
-    <H1>${id}</H1>
+    <div class="avatar text-center">
+        <div class="avatar-img img-fluid"> <img src="img/Asset 32.png" alt="" class="img-av"> </div>
+        <span class="avatar-name">${id}</span>
+    </div>
     `;
 });
 
