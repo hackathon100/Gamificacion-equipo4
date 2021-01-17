@@ -3,9 +3,8 @@ const socket = io();
 
 
 
-
+//Mostrar Pregunta en DOM
 window.levantarPregunta = (pregunta)=>{
-
     //Buscar Contenedores Para Asignar pregunta
     const contenedorPregunta = document.querySelector("#pregunta");
     const ContenedorRespuestas = document.querySelector("#respuestas");
@@ -44,22 +43,43 @@ socket.on('enviar:pregunta', (pregunta)=>{
 
 })
 
-//Muestra el Numerode la Pregunta
+//Muestra el Numero de la Pregunta
 socket.on('enviar:numero',(nPregunta)=>{
     document.querySelector("#contador-preguntas").innerHTML = "";
     document.querySelector("#contador-preguntas").innerHTML = `<h1 class="question ms-3">Pregunta ${nPregunta+1} de 10</h1>`
 })
 
 //Recibe informacion si alguien se conecta a la partida
-socket.on('join:User',(id)=>{
+let usuariosRegistrados = 0;
+socket.on('join:User',(conectados)=>{
+    console.log(conectados);
     let contenedorJugadores = document.querySelector("#jugadores")
-    let imgJugador = (randomInteger(3,10)*10)+2; 
-    contenedorJugadores.innerHTML +=`
-    <div class="avatar text-center">
-        <div class="avatar-img img-fluid"> <img src="img/Asset ${imgJugador}.png" alt="" class="img-av"> </div>
-        <span class="avatar-name">${id}</span>
-    </div>
-    `;
+    //si cuando alguien ingresa y la cantidad de jugadores no es la misma que la cantidad regitrada en el DOM, Registra los faltantes
+    if(usuariosRegistrados < conectados){
+        for (let i = usuariosRegistrados; i < conectados; i++) {
+            imgJugador = (randomInteger(3,10)*10)+2;
+            contenedorJugadores.innerHTML +=`
+            <div id="jugador${conectados}"class="avatar text-center">
+                <div class="avatar-img img-fluid"> <img src="img/Asset ${imgJugador}.png" alt="" class="img-av"> </div>
+                <span class="avatar-name">${""}</span>
+            </div>
+            `;
+            console.log("registrar en for");
+            
+            
+        }
+        usuariosRegistrados = conectados;
+    }
+
+});
+
+//Recibe inforamcion si alguien se desconecta de la partida
+socket.on('left:User',(conectados)=>{
+    let contenedorJugadores = document.querySelector("#jugadores")
+    let jugador = contenedorJugadores.querySelector("#jugador"+(conectados+1));
+    jugador.innerHTML = "";
+    console.log("Usuario borrado");
+    usuariosRegistrados = conectados;
 });
 
 //Envia respuesta de la pregunta

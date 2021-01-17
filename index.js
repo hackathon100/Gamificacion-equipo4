@@ -29,13 +29,23 @@ var respondieron = 0;
 var nPregunta = 0;
 let vidaTitan = 100;
 let vidaEjercito = 100;
-
+var conectados = 0;
 //Web Socket
 io.on('connection',(socket)=>{
 
     //al Recibir nueva conexion:
-    console.log("new conecction", socket.id);
-    io.sockets.emit('join:User',socket.id);
+    console.log("Usuario Conectado", socket.id);
+    conectados ++;
+    io.sockets.emit('join:User',conectados);
+
+    //Al Desconectar el usuario
+    socket.on('disconnect',(socket)=>{
+        console.log(" Un usuario Desconectado ");
+        conectados --;
+        io.sockets.emit('left:User', conectados);
+        
+        
+    });
 
     //Si hay a lo menos 2 jugadores, enviara la pregunta
     if(io.engine.clientsCount >= 2){
@@ -73,8 +83,10 @@ io.on('connection',(socket)=>{
             //termino el temario, se Levantan Estadisticas
             if(nPregunta == 3){
                 console.log("Todas las preguntas Contestadas");
-                //io.sockets.emit('enviar:resultados', preguntas[nPregunta])
+                vidaTitan = 100;
+                vidaEjercito = 100;
                 nPregunta = 0;
+                io.sockets.emit('partida:terminada',true);
                 
             };
             
@@ -83,3 +95,5 @@ io.on('connection',(socket)=>{
 
 
 })
+
+
