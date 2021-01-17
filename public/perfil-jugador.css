@@ -1,0 +1,95 @@
+.color-crown {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 15px/23px var(--unnamed-font-family-poppins);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal 600 15px/23px Poppins;
+  letter-spacing: 0px;
+  color: #ff9900;
+  opacity: 1;
+}
+
+.color-sword {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 15px/23px var(--unnamed-font-family-poppins);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal 600 15px/23px Poppins;
+  letter-spacing: 0px;
+  color: #717171;
+  opacity: 1;
+}
+
+.color-heart {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 15px/23px var(--unnamed-font-family-poppins);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal 600 15px/23px Poppins;
+  letter-spacing: 0px;
+  color: #f40000;
+  opacity: 1;
+}
+
+.color-shield {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 15px/23px var(--unnamed-font-family-poppins);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal 600 Poppins;
+  letter-spacing: 0px;
+  color: #717171;
+  opacity: 1;
+}
+
+.img-banner {
+  top: 267px;
+  left: 46px;
+  width: 94px;
+  height: 95px;
+  opacity: 1;
+}
+
+.cabecera {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-00b89b);
+  text-align: center;
+  letter-spacing: 0px;
+  color: #00b89b;
+  opacity: 1;
+}
+
+.datos-jugador {
+  top: 234px;
+  left: 23px;
+  width: 85%px;
+  height: 130px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 16px #00000029;
+  border: 2px solid #78ffa9;
+  border-radius: 15px;
+  opacity: 1;
+}
+
+.desafio {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-25)/var(--unnamed-line-spacing-38) var(--unnamed-font-family-poppins);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-4a4a4a);
+  font: normal normal bold 25px/38px Poppins;
+  letter-spacing: 0px;
+  color: #4A4A4A;
+  opacity: 1;
+}
+
+
+.desafio_uno {
+  border: 5px solid var(--unnamed-color-ffffff);
+  background: transparent url('img/Intersección 1.png') 0% 0% no-repeat padding-box;
+  box-shadow: 0px 8px 10px #00000029;
+  border: 5px solid #FFFFFF;
+  opacity: 1;
+  border-radius: 15px;
+}
+
+.img-desafio-uno {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+}
