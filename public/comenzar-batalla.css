@@ -1,0 +1,33 @@
+main {
+    width: 320pt;
+    height: 340px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    background: url(img/header@2x.png) no-repeat;
+    background-size: cover;
+    background-color: #622AFF;
+    opacity: 4;
+}
+
+.titan-math {
+    color: aliceblue;
+    font: normal normal 600 25px/23px Poppins;
+}
+
+.bottom-screen {
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+}
+
+.div-titan {
+    padding-bottom: 100px;
+    height: 180px;
+}
+
+.titan {
+    width: 160px;
+}
+
+.bottom-screen {
+    height: 60vh;
+}
