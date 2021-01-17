@@ -1,5 +1,5 @@
 .color-crown {
-  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 15px/23px var(--unnamed-font-family-poppins);
+  font-family: 'Poppins', sans-serif;
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: center;
   font: normal normal 600 15px/23px Poppins;
@@ -47,6 +47,7 @@
 }
 
 .cabecera {
+  font: normal normal bold 18px/24px Poppins;
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-00b89b);
   text-align: center;
@@ -56,12 +57,9 @@
 }
 
 .datos-jugador {
-  top: 234px;
-  left: 23px;
-  width: 85%px;
+  margin: auto;
+  width: 40%;
   height: 130px;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 10px 16px #00000029;
   border: 2px solid #78ffa9;
   border-radius: 15px;
@@ -72,7 +70,7 @@
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-25)/var(--unnamed-line-spacing-38) var(--unnamed-font-family-poppins);
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-4a4a4a);
-  font: normal normal bold 25px/38px Poppins;
+  font: normal normal bold 18px/24px Poppins;
   letter-spacing: 0px;
   color: #4A4A4A;
   opacity: 1;
@@ -89,7 +87,32 @@
 }
 
 .img-desafio-uno {
-  width: 120px;
-  height: 120px;
+  width: 320px;
+  height: 150px;
+  object-fit:cover;
   border-radius: 15px;
+}
+
+.texto-desafio{
+  font: normal normal bold 18px/24px Poppins;
+  color: #717171;
+}
+
+@media only screen and (max-width:900px) {
+
+  .texto-desafio{
+    font-size: 0px;
+  }
+
+  .datos-jugador {
+    width: 100%;
+  }
+
+  .img-desafio-uno {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+  }
+  
+  
 }

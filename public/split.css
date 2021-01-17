@@ -1,4 +1,5 @@
 body{
+    margin: auto;
     height: 100vh;
     background: transparent linear-gradient(180deg, var(--unnamed-color-00b89b) 0%, #78FFA9 100%) 0% 0% no-repeat padding-box;
     background: transparent linear-gradient(180deg, #00B89B 0%, #78FFA9 100%) 0% 0% no-repeat padding-box;
@@ -6,10 +7,16 @@ body{
 }
 
 .div-split{
-padding-top: 60%;
+padding-top: 20%;
 }
 
 .img-split{
     height: 164px;
     width: 204px;
+}
+
+@media only screen and (max-width:900px) {
+.div-split{
+    padding-top: 60%;
+ }
 }

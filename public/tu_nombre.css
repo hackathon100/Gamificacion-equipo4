@@ -1,9 +1,9 @@
 .div-tu-nomnbre {
-    padding-top: 60%;
+    padding-top: 10%;
 }
 
 .input-name {
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-29)/var(--unnamed-line-spacing-43) var(--unnamed-font-family-poppins);
+    font-family: 'Poppins', sans-serif;
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     border: 3px solid var(--unnamed-color-00b89b);
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -15,7 +15,7 @@
 }
 
 .h3-nombre {
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-29)/var(--unnamed-line-spacing-43) var(--unnamed-font-family-poppins);
+    font-family: 'Poppins', sans-serif;
     letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--unnamed-color-00b89b);
     font: normal normal bold 29px/43px Poppins;
@@ -26,10 +26,10 @@
 
 .div-boton-continuar{
     text-align: center;
-    padding-top: 60%;
+    padding-top: 20%;
 }
 .btn-continuar {
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 33px/50px var(--unnamed-font-family-poppins);
+    font-family: 'Poppins', sans-serif;
     letter-spacing: var(--unnamed-character-spacing-0);
     font: normal normal 600 33px/50px Poppins;
     letter-spacing: 0px;
@@ -39,4 +39,15 @@
     border-radius: 15px;
     border: #B398FF;
     
+}
+
+@media only screen and (max-width:900px) {
+    .div-tu-nomnbre {
+        padding-top: 60%;
+    }
+    
+    .div-boton-continuar{
+        text-align: center;
+        padding-top: 60%;
+    }
 }
