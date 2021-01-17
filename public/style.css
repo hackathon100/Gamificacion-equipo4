@@ -23,7 +23,7 @@ body {
 
 .bottom-screen{
     background-color: white;
-    border-radius: 30px; 
+    border-radius: 30px 30px 0 0; 
 }
 
 .title-page{
@@ -34,7 +34,11 @@ body {
 }
 
 .title{
-    width: 600px;
+    width: 350px;
+}
+
+.title2{
+    width: 350px;
 }
 
 .life-titan{
@@ -45,6 +49,7 @@ body {
     width: 290px;
     height: 33px;
 }
+
 .bg-progress-bar{
     background-color:var(--greenLight);
     border: 1px solid var(--greenDark);
@@ -67,8 +72,16 @@ body {
 .titan{
     width: 332px;
 }
+.bottom-screen{
+ padding: 3em;
+}
+
 .contenido{
     width: 900px;
+}
+
+.users{
+    margin-top:3em;
 }
 
 .question{
@@ -115,6 +128,10 @@ body {
     font-size:32px;
     font-weight:700;
     border:none;
+}
+.queue{
+    margin-top:3em;
+    margin-bottom:3em;
 }
 
 
