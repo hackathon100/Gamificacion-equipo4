@@ -25,7 +25,8 @@ preguntas = [
     {pregunta: "Cual noes un lenguaje de programacion", correct_answer: "HTML", incorrect1: "PYTHON", incorrect2: "JAVA", incorrect3:"PHP"}
     
 ];
-
+let  respondieron = 0;
+let nPregunta = 0;
 //Web Socket
 io.on('connection',(socket)=>{
 
@@ -35,11 +36,13 @@ io.on('connection',(socket)=>{
 
     //Si hay a lo menos 2 jugadores, enviara la pregunta
     if(io.engine.clientsCount >= 2){
-        io.sockets.emit('enviar:pregunta', preguntas[0])
+        io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
     };
 
-    //Recibe y Revisa la pregunta, enviara true o false
+    //Recibe y Revisa la pregunta, enviara true o false,
+    //Ademas verifica si todos respondieron para enviar nueva pregunta.
     socket.on('enviar:respuesta', (data)=>{
+        respondieron ++;
         if(preguntas[0].correct_answer == data){
             console.log("Respondio Correctamente");
             result = true;
@@ -50,6 +53,15 @@ io.on('connection',(socket)=>{
 
         }
         io.sockets.emit('respuesta:resultado', result);
+
+        //si la cantidd de respeustas es igual a la cantidad de conexiones:
+        if(respondieron == io.engine.clientsCount){
+            respondieron = 0;
+            //Enviar nueva pregunta
+            nPregunta ++;
+            io.sockets.emit('enviar:pregunta', preguntas[nPregunta])
+
+        }
     })
 
 
