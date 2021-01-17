@@ -22,9 +22,13 @@ const io = SocketIO(server);
 
 //Web Socket
 io.on('connection',(socket)=>{
-    //al Revicir nueva conexion:
+    //al Recibir nueva conexion:
     console.log("new conecction", socket.id);
     io.sockets.emit('join:User',socket.id);
 
-    
+    if(io.engine.clientsCount > 4){
+        
+    }
+
+
 })

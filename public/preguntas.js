@@ -10,10 +10,9 @@ window.preguntas = [
 ];
 
 
-window.addEventListener('DOMContentLoaded',()=>{
-    window.levantarPregunta(window.preguntas[0]);
-    
-});
+socket.on('recibir:pregunta', (pregunta)=>{
+    window.levantarPregunta(pregunta);
+})
 
 window.levantarPregunta = (pregunta)=>{
 
@@ -35,16 +34,16 @@ window.levantarPregunta = (pregunta)=>{
     //Cargar Respuesta
     ContenedorRespuestas.innerHTML = `
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.correct_answer}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.correct_answer}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect1}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect1}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect2}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect2}</button>
         </div>
         <div class="col-3 text-center">
-            <h3 class="btn btn-info text-white ">${pregunta.incorrect3}</h3>
+            <button class="btn btn-info text-white btn-respuesta" onclick="enviarRespuesta(this)">${pregunta.incorrect3}</button>
         </div>
         
         
@@ -60,3 +59,8 @@ socket.on('join:User',(id)=>{
     <H1>${id}</H1>
     `;
 });
+
+enviarRespuesta = function(id){
+    let respuesta = id.innerText;
+    socket.emit('enviar:respuesta', respuesta);
+}
