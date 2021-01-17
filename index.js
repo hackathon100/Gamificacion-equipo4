@@ -20,7 +20,7 @@ const io = SocketIO(server);
 
 //Variables
 preguntas = [
-    {pregunta: "Cual es el sinonimode Ganar",correct_answer: "Exito", incorrect1: "Derrota",incorrect2: "Fracaso", incorrect3: "Perdida"},
+    {pregunta: "¿Cuál es el resultado de restar 102.432 a un millón ciento diez mil?",correct_answer: "1.007.568", incorrect1: "1.007.570",incorrect2: "1.007.568", incorrect3: "Perdida"},
     {pregunta: "Cual es el sinonimode Perder",incorrect1: "Aprender", correct_answer: "Derrota", incorrect2: "Exito", incorrect3: "Mejorar"},
     {pregunta: "Cual noes un lenguaje de programacion", correct_answer: "HTML", incorrect1: "PYTHON", incorrect2: "JAVA", incorrect3:"PHP"}
     
@@ -29,6 +29,7 @@ var respondieron = 0;
 var nPregunta = 0;
 let vidaTitan = 100;
 let vidaEjercito = 100;
+
 //Web Socket
 io.on('connection',(socket)=>{
 
