@@ -1,0 +1,15 @@
+body{
+    height: 100vh;
+    background: transparent linear-gradient(180deg, var(--unnamed-color-00b89b) 0%, #78FFA9 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, #00B89B 0%, #78FFA9 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.div-split{
+padding-top: 60%;
+}
+
+.img-split{
+    height: 164px;
+    width: 204px;
+}
