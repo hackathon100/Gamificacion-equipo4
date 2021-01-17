@@ -1,0 +1,7 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/vuejs
+# Edit at https://www.toptal.com/developers/gitignore?templates=vuejs
+
+node_modules/
+dist/
+# End of https://www.toptal.com/developers/gitignore/api/vuejs
