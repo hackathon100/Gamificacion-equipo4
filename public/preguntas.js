@@ -110,15 +110,31 @@ socket.on('respuesta:resultado',(data)=>{
     };
 });
 
+
+
 //Resultados de la Partida:
 socket.on('partida:terminada', (resultado)=>{
     if (resultado == "Win"){
-        console.log("Ganaste");
+        document.querySelector("#resultado").innerText = " ! Tu Equipo ha ganado ¡";
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+            keyboard: false
+          })
+        
+        myModal.show();
         
     }else if (resultado == "Lose"){
-        console.log("Perdiste");
+        document.querySelector("#resultado").innerText = " ! Tu Equipo ha Perdido ¡";
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+            keyboard: false
+          })
+        myModal.show();
+
     }else if (resultado == "Empate"){
-        console.log("Empate");
+        document.querySelector("#resultado").innerText = " ! Tu Equipo ha Empatado¡";
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+            keyboard: false
+          })
+        myModal.show();
     };
 });
 
